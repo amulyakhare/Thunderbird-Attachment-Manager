@@ -40,7 +40,6 @@ function selectall() {
 
 //function to refresh the list box display each time the email selection changes.
 function refreshPane() {
-alert("fuck");
     let msgHdrs = gFolderDisplay.selectedMessages;
     var i = 0;
     var params = new Array();
