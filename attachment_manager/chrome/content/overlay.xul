@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<overlay id="sidebarOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="text/javascript">
+  <![CDATA[
+    var attachment_sidebar;
+    window.addEventListener("load", loadAttachmentSidebar, false);
+
+    function loadAttachmentSidebar() { 
+      if ( !document.getElementById("attachment_container").hidden ) {
+        document.getElementById("attachment_sidebarframe").contentDocument.location = "chrome://attachment_manager/content/attachment_sidebar.xul";
+        window.removeEventListener("load", loadAttachmentSidebar, false);
+        attachment_sidebar = true;
+      }
+    }
+
+    function toggleAttachmentSidebar() {
+
+      if ( attachment_sidebar ) {
+        document.getElementById("attachment_container").hidden = true;
+        document.getElementById("folderPaneSplitter").hidden = true;
+        attachment_sidebar = false;
+      } else {
+        document.getElementById("attachment_container").hidden = false;
+        document.getElementById("folderPaneSplitter").hidden = false;
+        loadAttachmentSidebar();
+      }
+    }
+  ]]>
+  </script>
+
+   <script type="application/javascript" src="chrome://attachment_manager/content/attachment_sidebar.js"/>
+   
+  <menupopup id="taskPopup">
+    <menuitem id="attachment_menuitem" label="Attachment Pane" insertafter="javaScriptConsole" oncommand="toggleAttachmentSidebar();"/>
+  </menupopup>
+
+  <vbox id="folderPaneBox">
+  
+    <tree id="folderTree" flex="1"/>
+
+    <splitter id="folderPaneSplitter" insertafter="folderTree" hidden="false" persist="hidden"/>
+
+    <vbox id="attachment_container" insertafter="folderPaneSplitter" hidden="false" persist="height hidden">
+      <sidebarheader align="center">
+        <label value="Attachment View" id="attachment_header"/>
+        <spacer flex="1"/>
+        <toolbarbutton oncommand="toggleAttachmentSidebar();" checked="false" id="attachment-closer" class="messageCloseButton"/>
+      </sidebarheader>
+
+      <iframe id="attachment_sidebarframe" flex="1"/>
+    </vbox>
+
+  </vbox>
+
+</overlay>

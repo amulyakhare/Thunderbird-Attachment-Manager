@@ -1,0 +1,4 @@
+content   attachment_manager                 chrome/content/
+locale    attachment_manager   en-US         chrome/locale/en-US/
+
+overlay chrome://messenger/content/messenger.xul chrome://attachment_manager/content/overlay.xul
