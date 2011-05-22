@@ -1,0 +1,13 @@
+This extension for Mozilla Thunderbird provides a great way to handle multiple attachments across different emails.
+
+Often people want to forward or download selected files from two related emails or they may need to forward selected attachments to selected people. Thunderbird provides no interface to be able to do so. If one wants to forward one attachment out of four to a person he is required to download it first or use other complicated methods. Also there is no way to be able to compose an email with attachments taken from different emails. This extension called the Attachment Manager solves these problems.
+
+This extension provides the following featues:
+
+1) View all the attachments from selected emails together.
+
+2) Download selected attachments across one or more emails.
+
+3) Forward selected attachments across one or more emails.
+
+4) Hover image attachments preview.
