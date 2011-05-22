@@ -10,8 +10,7 @@ var attachment_manager = {
 	//function to add event listeners to the checkbox and the thread tree.
     addListeners: function() {
         	var el = document.getElementById("threadTree");
-        	alert(el);
-        	el.addEventListener("select", refreshPane, null);
+            el.addEventListener("select", refreshPane, null);
         	var cb = document.getElementById("attachment_sidebarframe").contentDocument.getElementById("selall");
         	cb.addEventListener("CheckboxStateChange", selectall, null);
     }
