@@ -12,6 +12,7 @@
       if ( !document.getElementById("attachment_container").hidden ) {
         document.getElementById("attachment_sidebarframe").contentDocument.location = "chrome://attachment_manager/content/attachment_sidebar.xul";
         window.removeEventListener("load", loadAttachmentSidebar, false);
+        attachment_manager.addListeners();
         attachment_sidebar = true;
       }
     }
@@ -23,6 +24,7 @@
         document.getElementById("attachment_container").hidden = true;
         document.getElementById("folderPaneSplitter").hidden = true;
         attachment_sidebar = false;
+        attachment_manager.removeListeners();
       } else {
         document.getElementById("attachment_container").hidden = false;
         document.getElementById("folderPaneSplitter").hidden = false;

@@ -1,21 +1,21 @@
 var attachment_manager = {
-    onLoad: function () {
-        this.initialized = true;
-        addTimeoutEventListeners();
+    
+    removeListeners: function() {
+    	var el = document.getElementById("threadTree");
+        el.removeEventListener("select", refreshPane, null);
+        var cb = document.getElementById("attachment_sidebarframe").contentDocument.getElementById("selall");
+        cb.removeEventListener("CheckboxStateChange", selectall, null);
+    },
+    
+	//function to add event listeners to the checkbox and the thread tree.
+    addListeners: function() {
+        	var el = document.getElementById("threadTree");
+        	alert(el);
+        	el.addEventListener("select", refreshPane, null);
+        	var cb = document.getElementById("attachment_sidebarframe").contentDocument.getElementById("selall");
+        	cb.addEventListener("CheckboxStateChange", selectall, null);
     }
 };
-
-//function to add event listeners to the checkbox and the thread tree.
-function addTimeoutEventListeners() {
-    setTimeout(
-    function () {
-        var el = document.getElementById("threadTree");
-        el.addEventListener("select", refreshPane, null);
-        var cb = document.getElementById("attachment_sidebarframe").contentDocument.getElementById("selall");
-        cb.addEventListener("CheckboxStateChange", selectall, null);
-    }, 1000)
-    
-}
 
 //function to select all / deselect all the attachments in the list box.
 function selectall() {
@@ -40,6 +40,7 @@ function selectall() {
 
 //function to refresh the list box display each time the email selection changes.
 function refreshPane() {
+alert("fuck");
     let msgHdrs = gFolderDisplay.selectedMessages;
     var i = 0;
     var params = new Array();
@@ -200,5 +201,3 @@ function composeMessageWithText(att) {
         }
     }
 }
-
-window.addEventListener("load", attachment_manager.onLoad, false);
