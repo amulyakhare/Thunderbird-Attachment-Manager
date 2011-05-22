@@ -86,6 +86,9 @@ function createListItem(att, name, src) {
         img.setAttribute("src", att.url);
         img.setAttribute("maxheight", "400");
         img.setAttribute("maxwidth", "400");
+        image.setAttribute("src",att.url);
+        image.setAttribute("maxheight", "40");
+        image.setAttribute("maxwidth", "40");
         tooltip.appendChild(img);
         dialog.appendChild(tooltip);
         item.tooltip = tooltip.id;
